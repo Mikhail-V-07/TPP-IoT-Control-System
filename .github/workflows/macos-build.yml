@@ -13,12 +13,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Compile
+    - name: Compile Application
       run: |
-        g++ -std=c++17 -O2 *.cpp -o TPP_Analytics_Mac
+        cd TPP-IoT-Control-System
+        g++ -std=c++11 *.cpp -o ../TPP_Analytics_Mac
 
-    - name: Upload artifact
+    - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: TPP_Analytics_macOS
+        name: TPP_System_macOS
         path: TPP_Analytics_Mac

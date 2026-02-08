@@ -15,17 +15,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: List source files
-      run: ls -R TPP-IoT-Control-System
-
     - name: Compile TPP Analytics
       run: |
         cd TPP-IoT-Control-System
-        echo "Compiling on macOS..."
-        clang++ -std=c++17 -O2 $(find . -name "*.cpp") -o TPP_Analytics_Mac
+        echo "Finding all .cpp files..."
+        SRC_FILES=$(find . -name "*.cpp")
+        echo "Compiling: $SRC_FILES"
+        clang++ -std=c++17 -O2 $SRC_FILES -o TPP_Analytics_Mac
 
     - name: Upload executable
       uses: actions/upload-artifact@v3
       with:
         name: TPP_Analytics_Mac
         path: TPP-IoT-Control-System/TPP_Analytics_Mac
+

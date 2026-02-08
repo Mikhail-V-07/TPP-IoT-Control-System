@@ -93,16 +93,19 @@ The program is console-based.
 3. Start by generating a new history when prompted
 
 ### macOS
-1. Download the macOS build from **Releases**
-2. Grant execution permission:
+1. **Download** the macOS build from the **Releases** (or Actions) section.
+2. **Open Terminal** and navigate to the folder with the file.
+3. **Grant execution permission**:
    ```bash
    chmod +x TPP_Analytics_Mac
-3. Run:
-  ```bash
-  ./TPP_Analytics_Mac
+Run the app:
 ```
+Bash
+./TPP_Analytics_Mac
+```
+**Note for macOS users:** If you see a warning about an "Unidentified Developer", go to System Settings > Privacy & Security, scroll down, and click "Open Anyway". Alternatively, right-click the file in Finder and select Open.
 
-Notes on Code Quality
+## Notes on Code Quality
 
 This is an educational project
 

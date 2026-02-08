@@ -116,7 +116,7 @@ The repository is published mainly to track learning progress and receive feedba
 
 ---
 
-#Use of AI Tools
+## Use of AI Tools
 
 During development, I used AI tools as a learning assistant to search for information, study materials, and explanations of concepts that were not yet covered in my university curriculum.
 
@@ -124,7 +124,7 @@ AI was used strictly as a support tool for learning, similar to documentation, t
 
 ---
 
-#Final Note
+## Final Note
 
 This is a small learning project, but it reflects my current level and the topics I am studying.
 Any constructive feedback or suggestions are welcome.

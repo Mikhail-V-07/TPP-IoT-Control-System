@@ -1,25 +1,31 @@
-name: macOS Build
+name: Build TPP Analytics (macOS)
 
 on:
   push:
-    branches: [ "main", "master" ]
-  workflow_dispatch:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
+
     runs-on: macos-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-    - name: Compile Application
+    - name: List source files
+      run: ls -R TPP-IoT-Control-System
+
+    - name: Compile TPP Analytics
       run: |
         cd TPP-IoT-Control-System
-        g++ -std=c++11 *.cpp -o ../TPP_Analytics_Mac
+        echo "Compiling on macOS..."
+        clang++ -std=c++17 -O2 $(find . -name "*.cpp") -o TPP_Analytics_Mac
 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
+    - name: Upload executable
+      uses: actions/upload-artifact@v3
       with:
-        name: TPP_System_macOS
-        path: TPP_Analytics_Mac
+        name: TPP_Analytics_Mac
+        path: TPP-IoT-Control-System/TPP_Analytics_Mac

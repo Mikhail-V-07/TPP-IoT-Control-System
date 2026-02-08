@@ -1,0 +1,24 @@
+name: macOS Build
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Compile
+      run: |
+        g++ -std=c++17 -O2 *.cpp -o TPP_Analytics_Mac
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: TPP_Analytics_macOS
+        path: TPP_Analytics_Mac

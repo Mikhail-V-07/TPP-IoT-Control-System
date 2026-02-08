@@ -20,12 +20,15 @@ jobs:
         cd TPP-IoT-Control-System
         echo "Finding all .cpp files..."
         SRC_FILES=$(find . -name "*.cpp")
+        if [ -z "$SRC_FILES" ]; then
+          echo "No .cpp files found!"
+          exit 1
+        fi
         echo "Compiling: $SRC_FILES"
         clang++ -std=c++17 -O2 $SRC_FILES -o TPP_Analytics_Mac
 
     - name: Upload executable
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: TPP_Analytics_Mac
         path: TPP-IoT-Control-System/TPP_Analytics_Mac
-
